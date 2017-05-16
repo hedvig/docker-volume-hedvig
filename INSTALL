@@ -1,4 +1,4 @@
-// Installing plugin from docker store
+**** Installing plugin from docker store ****
 1. Create "/etc/hedvig" directory in the host machine/vm
 2. Copy over config.xml and docker plugin binary "docker-volume-hedvig"
 cp plugin/config/config.xml /etc/hedvig/
