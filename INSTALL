@@ -1,0 +1,17 @@
+// Installing plugin from docker store
+1. Create "/etc/hedvig" directory in the host machine/vm
+2. Copy over config.xml and docker plugin binary "docker-volume-hedvig"
+cp plugin/config/config.xml /etc/hedvig/
+cp plugin/bin/docker-volume-hedvig /etc/hedvig/
+3. Install plugin
+docker plugin install hedvig/hedvig-volume:v-1.0
+4. Allow permissions requested by the plugin
+5. Check if plugin is successfully installed and enabled
+docker plugin ls
+   -> Sample output
+ID                  NAME                               DESCRIPTION                ENABLED
+10f46a70b5ee        hedvig/hedvig-volume:v-1.0   volume plugin for hedvig   true
+6. For sample test steps to check whether plugin is able to create hedvig volumes or not,
+   please see steps in README
+
+

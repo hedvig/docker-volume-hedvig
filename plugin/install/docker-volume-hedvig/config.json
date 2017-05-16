@@ -1,0 +1,27 @@
+{
+        "description": "volume plugin for hedvig",
+        "documentation": "https://docs.docker.com/engine/extend/plugins/",
+        "entrypoint": ["/etc/hedvig/docker-volume-hedvig"],
+        "network": {
+                   "type": "host"
+                   },
+        "interface" : {
+                   "types": ["docker.volumedriver/1.0"],
+                   "socket": "hedvig.sock"
+        },
+        "linux" : 
+        {
+                "capabilities": ["CAP_DAC_READ_SEARCH","CAP_FOWNER","CAP_MAC_ADMIN","CAP_NET_ADMIN","CAP_SYS_RAWIO","CAP_SYS_RESOURCE","CAP_SYS_TTY_CONFIG","CAP_SYS_ADMIN","CAP_SYS_MODULE","CAP_SYSLOG","CAP_MKNOD"],
+		"allowAllDevices":  true
+        },
+"mounts": [
+    {
+	"destination": "/etc/hedvig",
+	"type": "bind",
+	"source": "/etc/hedvig",
+	"options": ["rbind","rw"]
+    }
+],
+	"propagatedmount": "/var/lib/docker-volumes/_hedvig"
+}
+
