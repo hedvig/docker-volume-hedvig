@@ -1,7 +1,7 @@
 {
         "description": "volume plugin for hedvig",
         "documentation": "https://docs.docker.com/engine/extend/plugins/",
-        "entrypoint": ["/etc/hedvig/docker-volume-hedvig"],
+        "entrypoint": ["/bin/docker-volume-hedvig"],
         "network": {
                    "type": "host"
                    },
