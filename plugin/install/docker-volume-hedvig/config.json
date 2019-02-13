@@ -1,7 +1,7 @@
 {
-        "description": "volume plugin for hedvig",
+        "description": "Hedvig Volume Plugin",
         "documentation": "https://docs.docker.com/engine/extend/plugins/",
-        "entrypoint": ["/bin/docker-volume-hedvig"],
+        "entrypoint": ["/bin/entrypoint.sh"],
         "network": {
                    "type": "host"
                    },
@@ -9,19 +9,30 @@
                    "types": ["docker.volumedriver/1.0"],
                    "socket": "hedvig.sock"
         },
-        "linux" : 
+        "linux" :
         {
                 "capabilities": ["CAP_DAC_READ_SEARCH","CAP_FOWNER","CAP_MAC_ADMIN","CAP_NET_ADMIN","CAP_SYS_RAWIO","CAP_SYS_RESOURCE","CAP_SYS_TTY_CONFIG","CAP_SYS_ADMIN","CAP_SYS_MODULE","CAP_SYSLOG","CAP_MKNOD"],
-		"allowAllDevices":  true
+                "allowAllDevices":  true
         },
-"mounts": [
-    {
-	"destination": "/etc/hedvig",
-	"type": "bind",
-	"source": "/etc/hedvig",
-	"options": ["rbind","rw"]
-    }
-],
-	"propagatedmount": "/var/lib/docker-volumes/_hedvig"
+        "mounts": [
+            {
+                "destination": "/etc/hedvig",
+                "type": "bind",
+                "source": "/etc/hedvig",
+                "options": ["rbind","rw"]
+            },
+            {
+                "destination": "/etc/iscsi",
+                "type": "bind",
+                "source": "/etc/iscsi",
+                "options": ["rbind","r"]
+            },
+            {
+                "destination": "/dev",
+                "type": "bind",
+                "source": "/dev",
+                "options": ["rbind","rw"]
+            }
+        ],
+        "propagatedmount": "/var/lib/docker-volumes/_hedvig"
 }
-

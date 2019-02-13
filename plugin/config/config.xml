@@ -1,8 +1,7 @@
 <HedvigConfig>
         <Options>
-                <cvm>woodcvm1.snc1.hedviginc.com</cvm>
-                <metadatanode>wood1.snc1.hedviginc.com</metadatanode>
-                <clustername>wood</clustername>
-                <nfsexport>hedvigDockerContainer</nfsexport>
+                <storage_endpoint></storage_endpoint>
+                <storage_node></storage_node>
+                <storage_cluster></storage_cluster>
         </Options>
 </HedvigConfig>
